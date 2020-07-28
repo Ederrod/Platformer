@@ -129,22 +129,21 @@ public class LevelManager {
     public void setWaypoints() {
         for (GameObject guard: gameObjects) {
             if (guard.getType() == 'g') {
-                int feetTileIndex = -1;
-                float leftEnd = -1, rightEnd = -1;
+                int feetTileIndex = -1; // index of the tile beneath the guard
+                float leftEnd = -1, rightEnd = -1;  // left and right ends of the calculated route
                 for (GameObject tile: gameObjects) {
                     feetTileIndex++;
                     if (tile.getWorldLocation().y == guard.getWorldLocation().y + 2
-                        && tile.getWorldLocation().x == guard.getWorldLocation().x) {
+                            &&  tile.getWorldLocation().x == guard.getWorldLocation().x) {
                         leftEnd = gameObjects.get(feetTileIndex - 5).getWorldLocation().x;
-                        for (int i = 1; i <= 5;  i++) {
-                            GameObject left = gameObjects.get(feetTileIndex - 1);
+                        for (int i = 1; i <= 5; i++) {
+                            GameObject left = gameObjects.get(feetTileIndex - i);
                             if (left.getWorldLocation().x != guard.getWorldLocation().x - i
-                                || left.getWorldLocation().y != guard.getWorldLocation().y + 2
-                                || !left.isTraversable()) {
+                                    || left.getWorldLocation().y != guard.getWorldLocation().y + 2
+                                    || !left.isTraversable()) {
                                 leftEnd = gameObjects.get(feetTileIndex - (i - 1)).getWorldLocation().x;
-                                break;
-                            }
-                        }
+                                break; } }
+
                         rightEnd = gameObjects.get(feetTileIndex + 5).getWorldLocation().x;
                         for (int i = 1; i <= 5; i++) {
                             GameObject right = gameObjects.get(feetTileIndex + i);
@@ -152,16 +151,15 @@ public class LevelManager {
                                     || right.getWorldLocation().y != guard.getWorldLocation().y + 2
                                     || !right.isTraversable()) {
                                 rightEnd = gameObjects.get(feetTileIndex + (i - 1)).getWorldLocation().x;
-                                break;
-                            }
-                        }
+                                break; } }
 
-                        ((Guard)guard).setWaypoints(leftEnd, rightEnd);
+                        ((Guard) guard).setWaypoints(leftEnd, rightEnd);
                     }
                 }
             }
         }
     }
+
 
     private void loadMapData(Context context, int pixelsPerMeter, float px, float py) {
         int currentIndex = -1;

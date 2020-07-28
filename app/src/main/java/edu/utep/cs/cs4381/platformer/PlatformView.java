@@ -57,7 +57,7 @@ public class PlatformView extends SurfaceView implements Runnable {
         sm = SoundManager.instance(context);
 
         ps = new PlayerState();
-        loadLevel("LevelCave", 10, 7);
+        loadLevel("LevelCave", 5, 2);
     }
 
     @Override
@@ -220,9 +220,8 @@ public class PlatformView extends SurfaceView implements Runnable {
             for (int layer = -1; layer <= 1; layer++) {
                 for (GameObject go : lm.getGameObjects()) {
                     if (go.getType() == 'g') {
-                        Log.d("PlatformView", "guard");
+                        Log.d("PlatformView", "gaurd is visiable: " + go.isVisible());
                     }
-
                     if (go.isVisible() && go.getWorldLocation().z == layer) {
                         toScreen2d.set(
                                 vp.worldToScreen(
@@ -235,7 +234,6 @@ public class PlatformView extends SurfaceView implements Runnable {
 
                         if (go.isAnimated()) {
                             if (go.getFacing() == GameObject.RIGHT) {
-                                logGameObject(go);
                                 Matrix flipper = new Matrix();
                                 flipper.preScale(-1, 1);
                                 Rect r = go.getRectToDraw(System.currentTimeMillis());

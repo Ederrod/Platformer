@@ -23,16 +23,19 @@ public class Guard extends GameObject {
         setWidth(WIDTH); // 1 metres wide
         setType(type);
         setBitmapName("guard");
+
         // Now for the player's other attributes
         // Our game engine will use these
         setMoves(true);
         setActive(true);
         setVisible(true);
+
         // Set this object up to be animated
         setAnimFps(ANIMATION_FPS);
         setAnimFrameCount(ANIMATION_FRAME_COUNT);
-        setBitmapName(BITMAP_NAME);
+//        setBitmapName(BITMAP_NAME);
         setAnimated(context, pixelsPerMetre, true);
+
         // Where does the tile start
         // X and y locations from constructor parameters
         setWorldLocation(worldStartX, worldStartY, 0);
@@ -54,7 +57,7 @@ public class Guard extends GameObject {
                 setFacing(RIGHT);
             }
         }
-        
+
         if(currentWaypoint == RIGHT){
             if (getWorldLocation().x >= waypointRight) {
                 // Arrived at waypoint 2

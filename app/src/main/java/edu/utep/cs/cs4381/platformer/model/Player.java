@@ -42,6 +42,7 @@ public class Player extends GameObject {
         setyVelocity(0);
         setFacing(LEFT);
         isFalling = false;
+
         // Now for the player's other attributes
         // Our game engine will use these
         setMoves(true);
