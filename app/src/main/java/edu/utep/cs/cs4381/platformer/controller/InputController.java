@@ -47,7 +47,7 @@ public class InputController {
                 buttonPadding + buttonHeight);
     }
 
-    public List<Rect> getButtons(){
+    public List getButtons(){
         //create an array of buttons for the draw method
         ArrayList<Rect> currentButtonList = new ArrayList<>();  // FIXME
         currentButtonList.add(left);
@@ -63,9 +63,9 @@ public class InputController {
         for (int i = 0; i < pointerCount; i++) {
             int x = (int) motionEvent.getX(i);
             int y = (int) motionEvent.getY(i);
-
             if(l.isPlaying()) {
-                switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
+                switch (motionEvent.getAction() &
+                        MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:
                     case MotionEvent.ACTION_POINTER_DOWN:
                         if (right.contains(x, y)) {
@@ -110,7 +110,15 @@ public class InputController {
                 //Move the viewport around to explore the map
                 switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:
-                        if (pause.contains(x, y)) {
+                        if (right.contains(x, y)) {
+                            vp.moveViewportRight(l.getMapWidth());
+                        } else if (left.contains(x, y)) {
+                            vp.moveViewportLeft();
+                        } else if (jump.contains(x, y)) {
+                            vp.moveViewportUp();
+                        } else if (shoot.contains(x, y)) {
+                            vp.moveViewportDown(l.getMapHeight());
+                        } else if (pause.contains(x, y)) {
                             l.switchPlayingStatus();
                             //Log.w("pause:", "DOWN" );
                         }

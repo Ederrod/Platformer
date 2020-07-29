@@ -1,6 +1,8 @@
-package edu.utep.cs.cs4381.platformer.model;
+package edu.utep.cs.cs4381.platformer.model.objects;
 
 import android.content.Context;
+
+import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 
 public class Guard extends GameObject {
     // Guards just move on x axis between 2 waypoints

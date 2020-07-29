@@ -3,12 +3,21 @@ package edu.utep.cs.cs4381.platformer.model;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.utep.cs.cs4381.platformer.controller.InputController;
+import edu.utep.cs.cs4381.platformer.model.levels.LevelCave;
+import edu.utep.cs.cs4381.platformer.model.levels.LevelData;
+import edu.utep.cs.cs4381.platformer.model.objects.Coin;
+import edu.utep.cs.cs4381.platformer.model.objects.Drone;
+import edu.utep.cs.cs4381.platformer.model.objects.ExtraLife;
+import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
+import edu.utep.cs.cs4381.platformer.model.objects.Grass;
+import edu.utep.cs.cs4381.platformer.model.objects.Guard;
+import edu.utep.cs.cs4381.platformer.model.objects.MachineGunUpgrade;
+import edu.utep.cs.cs4381.platformer.model.objects.Player;
 
 public class LevelManager {
     private String level;
@@ -160,14 +169,13 @@ public class LevelManager {
         }
     }
 
-
     private void loadMapData(Context context, int pixelsPerMeter, float px, float py) {
         int currentIndex = -1;
-        mapHeight = levelData.tiles.size();
-        mapWidth = levelData.tiles.get(0).length();
-        for (int i = 0; i < levelData.tiles.size(); i++) {
-            for (int j = 0; j < levelData.tiles.get(i).length(); j++) {
-                char c = levelData.tiles.get(i).charAt(j);
+        mapHeight = levelData.getTiles().size();
+        mapWidth = levelData.getTiles().get(0).length();
+        for (int i = 0; i < levelData.getTiles().size(); i++) {
+            for (int j = 0; j < levelData.getTiles().get(i).length(); j++) {
+                char c = levelData.getTiles().get(i).charAt(j);
                 if (c != '.') {
                     currentIndex++;
                     switch (c) {

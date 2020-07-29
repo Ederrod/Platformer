@@ -1,22 +1,23 @@
-package edu.utep.cs.cs4381.platformer.model;
+package edu.utep.cs.cs4381.platformer.model.objects;
 
-public class MachineGunUpgrade extends GameObject {
+import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 
-    public MachineGunUpgrade(float worldStartX,
-                             float worldStartY,
-                             char type) {
+public class Coin extends GameObject {
+
+    public Coin(float worldStartX, float worldStartY, char type) {
         final float HEIGHT = .5f;
         final float WIDTH = .5f;
         setHeight(HEIGHT);
         setWidth(WIDTH);
         setType(type);
         // Choose a Bitmap
-        setBitmapName("clip");
+        setBitmapName("coin");
         // Where does the tile start
         // X and y locations from constructor parameters
         setWorldLocation(worldStartX, worldStartY, 0);
         setRectHitbox();
     }
 
-    public void update(long fps, float gravity){}
+    public void update(long fps, float gravity) {
+    }
 }

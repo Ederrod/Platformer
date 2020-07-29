@@ -1,6 +1,9 @@
-package edu.utep.cs.cs4381.platformer.model;
+package edu.utep.cs.cs4381.platformer.model.objects;
 
 import android.graphics.PointF;
+
+import edu.utep.cs.cs4381.platformer.model.Vector2Point5D;
+import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 
 public class Drone extends GameObject {
 

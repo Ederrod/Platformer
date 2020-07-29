@@ -17,8 +17,8 @@ import android.view.SurfaceView;
 import java.util.List;
 
 import edu.utep.cs.cs4381.platformer.controller.InputController;
-import edu.utep.cs.cs4381.platformer.model.Drone;
-import edu.utep.cs.cs4381.platformer.model.GameObject;
+import edu.utep.cs.cs4381.platformer.model.objects.Drone;
+import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 import edu.utep.cs.cs4381.platformer.model.LevelManager;
 import edu.utep.cs.cs4381.platformer.model.MachineGun;
 import edu.utep.cs.cs4381.platformer.model.PlayerState;

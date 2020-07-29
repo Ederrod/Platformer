@@ -7,7 +7,7 @@ public class RectHitbox {
     float right;
     float height;
 
-    boolean intersects(RectHitbox rectHitbox){
+    public boolean intersects(RectHitbox rectHitbox){
         boolean hit = false;
         if(this.right > rectHitbox.left
                 && this.left < rectHitbox.right ){
@@ -22,6 +22,10 @@ public class RectHitbox {
         return hit;
     }
 
+
+    public float getTop() {
+        return top;
+    }
     public void setTop(float top) {
         this.top = top;
     }
@@ -33,6 +37,9 @@ public class RectHitbox {
         this.left = left;
     }
 
+    public float getBottom() {
+        return bottom;
+    }
     public void setBottom(float bottom) {
         this.bottom = bottom;
     }
@@ -40,7 +47,6 @@ public class RectHitbox {
     public float getRight() {
         return right;
     }
-
     public void setRight(float right) {
         this.right = right;
     }
@@ -48,7 +54,6 @@ public class RectHitbox {
     public float getHeight() {
         return height;
     }
-
     public void setHeight(float height) {
         this.height = height;
     }

@@ -1,9 +1,13 @@
-package edu.utep.cs.cs4381.platformer.model;
+package edu.utep.cs.cs4381.platformer.model.objects;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+
+import edu.utep.cs.cs4381.platformer.model.Animation;
+import edu.utep.cs.cs4381.platformer.model.RectHitbox;
+import edu.utep.cs.cs4381.platformer.model.Vector2Point5D;
 
 public abstract class GameObject {
 

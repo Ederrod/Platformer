@@ -1,8 +1,10 @@
-package edu.utep.cs.cs4381.platformer.model;
+package edu.utep.cs.cs4381.platformer.model.objects;
 
-public class ExtraLife extends GameObject{
+import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 
-    ExtraLife(float worldStartX, float worldStartY, char type) {
+public class ExtraLife extends GameObject {
+
+    public ExtraLife(float worldStartX, float worldStartY, char type) {
         final float HEIGHT = .8f;
         final float WIDTH = .65f;
         setHeight(HEIGHT);

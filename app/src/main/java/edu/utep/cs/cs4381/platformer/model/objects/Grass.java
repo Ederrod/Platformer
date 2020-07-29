@@ -1,4 +1,6 @@
-package edu.utep.cs.cs4381.platformer.model;
+package edu.utep.cs.cs4381.platformer.model.objects;
+
+import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 
 public class Grass extends GameObject {
     final private static float HEIGHT = 1;
