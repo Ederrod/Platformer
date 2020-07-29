@@ -20,6 +20,7 @@ import edu.utep.cs.cs4381.platformer.controller.InputController;
 import edu.utep.cs.cs4381.platformer.model.objects.Drone;
 import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 import edu.utep.cs.cs4381.platformer.model.LevelManager;
+import edu.utep.cs.cs4381.platformer.model.LevelManager.Level;
 import edu.utep.cs.cs4381.platformer.model.MachineGun;
 import edu.utep.cs.cs4381.platformer.model.PlayerState;
 import edu.utep.cs.cs4381.platformer.model.SoundManager;
@@ -57,7 +58,7 @@ public class PlatformView extends SurfaceView implements Runnable {
         sm = SoundManager.instance(context);
 
         ps = new PlayerState();
-        loadLevel("LevelCave", 5, 2);
+        loadLevel(Level.CAVE, 5, 2);
     }
 
     @Override
@@ -97,7 +98,7 @@ public class PlatformView extends SurfaceView implements Runnable {
         return true;
     }
 
-    private void loadLevel(String level, float px, float py) {
+    private void loadLevel(Level level, float px, float py) {
         ic = new InputController(vp.getScreenWidth(), vp.getScreenHeight());
 
 //        PointF location = new PointF(px, py);

@@ -20,7 +20,15 @@ import edu.utep.cs.cs4381.platformer.model.objects.MachineGunUpgrade;
 import edu.utep.cs.cs4381.platformer.model.objects.Player;
 
 public class LevelManager {
-    private String level;
+
+    public enum Level {
+        CAVE,
+        CITY,
+        FOREST,
+        MOUNTAIN
+    }
+
+    private Level level;
     private int mapWidth;
     private int mapHeight;
     private Player player;
@@ -33,11 +41,17 @@ public class LevelManager {
     private Bitmap[] bitmapsArray;
 
     public LevelManager(Context context, int pixelsPerMetre, int screenWidth,
-                        InputController ic, String level, float px, float py) {
+                        InputController ic, Level level, float px, float py) {
         this.level = level;
         switch (level) {
-            case "LevelCave":
+            case CAVE:
                 levelData = new LevelCave();
+                break;
+            case CITY:
+                break;
+            case FOREST:
+                break;
+            case MOUNTAIN:
                 break;
         }
         gameObjects = new ArrayList<>();
@@ -82,7 +96,7 @@ public class LevelManager {
         return bitmapsArray[getBitmapIndex(blockType)];
     }
 
-    public String getLevel() {
+    public Level getLevel() {
         return level;
     }
 
