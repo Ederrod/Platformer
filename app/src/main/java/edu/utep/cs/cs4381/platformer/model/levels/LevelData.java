@@ -17,6 +17,14 @@ public class LevelData {
         return tiles;
     }
 
+    public List<BackgroundData> getBackgroundDataList() {
+        return backgroundDataList;
+    }
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
     // Tile types
     // . = no tile
     // 1 = Grass

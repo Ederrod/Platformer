@@ -2,6 +2,9 @@ package edu.utep.cs.cs4381.platformer.model.objects;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.utep.cs.cs4381.platformer.model.MachineGun;
 import edu.utep.cs.cs4381.platformer.model.RectHitbox;
 import edu.utep.cs.cs4381.platformer.model.SoundManager;
@@ -116,21 +119,25 @@ public class Player extends GameObject {
         Vector2Point5D location = getWorldLocation();
         float lx = location.x;
         float ly = location.y;
-        //update the player feet hitbox
+
+//        //update the player feet hitbox
         rectHitboxFeet.setTop(ly + getHeight() * .95f);
         rectHitboxFeet.setLeft(lx + getWidth() * .2f);
         rectHitboxFeet.setBottom(ly + getHeight() * .98f);
-        rectHitboxFeet.setHeight(lx + getWidth() * .8f);
+        rectHitboxFeet.setRight(lx + getWidth() * .8f);
+
         // Update player head hitbox
         rectHitboxHead.setTop(ly);
         rectHitboxHead.setLeft(lx + getWidth() * .4f);
         rectHitboxHead.setBottom(ly + getHeight() * .2f);
         rectHitboxHead.setRight(lx + getWidth() * .6f);
+
         // Update player left hitbox
         rectHitboxLeft.setTop(ly + getHeight() * .2f);
         rectHitboxLeft.setLeft(lx + getWidth() * .2f);
         rectHitboxLeft.setBottom(ly + getHeight() * .8f);
         rectHitboxLeft.setRight(lx + getWidth() * .3f);
+
         // Update player right hitbox
         rectHitboxRight.setTop(ly + getHeight() * .2f);
         rectHitboxRight.setLeft(lx + getWidth() * .8f);
@@ -174,6 +181,7 @@ public class Player extends GameObject {
     public void setPressingLeft(boolean isPressingLeft) {
         this.isPressingLeft = isPressingLeft;
     }
+
     public void startJump(SoundManager sm) {
         if (!isFalling) {//can't jump if falling
             if (!isJumping) {//not already jumping
@@ -204,5 +212,14 @@ public class Player extends GameObject {
                 setxVelocity(MAX_X_VELOCITY);
             }
         }
+    }
+
+    public List<RectHitbox> getHitboxes() {
+        List<RectHitbox> hitboxes = new ArrayList<RectHitbox>();
+        hitboxes.add(rectHitboxFeet);
+        hitboxes.add(rectHitboxHead);
+        hitboxes.add(rectHitboxLeft);
+        hitboxes.add(rectHitboxRight);
+        return hitboxes;
     }
 }

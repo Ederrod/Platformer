@@ -1,11 +1,11 @@
 package edu.utep.cs.cs4381.platformer.model;
 
 public class RectHitbox {
-    float top;
-    float left;
-    float bottom;
-    float right;
-    float height;
+    public float top;
+    public float left;
+    public float bottom;
+    public float right;
+    public float height;
 
     public boolean intersects(RectHitbox rectHitbox){
         boolean hit = false;

@@ -5,7 +5,7 @@ import java.util.Random;
 import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 
 public class Stalactite extends GameObject {
-    Stalactite(float worldStartX, float worldStartY, char type) {
+    public Stalactite(float worldStartX, float worldStartY, char type) {
         final float HEIGHT = 3;
         final float WIDTH = 2;
         setHeight(HEIGHT);
@@ -20,6 +20,7 @@ public class Stalactite extends GameObject {
             setWorldLocation(worldStartX, worldStartY, 1);
         }
     }
+
     public void update(long fps, float gravity) {
     }
 }

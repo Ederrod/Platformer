@@ -5,7 +5,7 @@ import java.util.Random;
 import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 
 public class Boulders extends GameObject {
-    Boulders(float worldStartX, float worldStartY, char type) {
+    public Boulders(float worldStartX, float worldStartY, char type) {
         final float HEIGHT = 1;
         final float WIDTH = 3;
         setHeight(HEIGHT); // 1 metre tall

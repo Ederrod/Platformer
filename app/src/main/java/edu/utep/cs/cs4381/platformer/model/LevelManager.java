@@ -9,15 +9,11 @@ import java.util.List;
 
 import edu.utep.cs.cs4381.platformer.controller.InputController;
 import edu.utep.cs.cs4381.platformer.model.levels.LevelCave;
+import edu.utep.cs.cs4381.platformer.model.levels.LevelCity;
 import edu.utep.cs.cs4381.platformer.model.levels.LevelData;
-import edu.utep.cs.cs4381.platformer.model.objects.Coin;
-import edu.utep.cs.cs4381.platformer.model.objects.Drone;
-import edu.utep.cs.cs4381.platformer.model.objects.ExtraLife;
-import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
-import edu.utep.cs.cs4381.platformer.model.objects.Grass;
-import edu.utep.cs.cs4381.platformer.model.objects.Guard;
-import edu.utep.cs.cs4381.platformer.model.objects.MachineGunUpgrade;
-import edu.utep.cs.cs4381.platformer.model.objects.Player;
+import edu.utep.cs.cs4381.platformer.model.levels.LevelForest;
+import edu.utep.cs.cs4381.platformer.model.levels.LevelMountain;
+import edu.utep.cs.cs4381.platformer.model.objects.*;
 
 public class LevelManager {
 
@@ -40,6 +36,8 @@ public class LevelManager {
     private List<Rect> currentButtons;
     private Bitmap[] bitmapsArray;
 
+    private List<Background> backgrounds;
+
     public LevelManager(Context context, int pixelsPerMetre, int screenWidth,
                         InputController ic, Level level, float px, float py) {
         this.level = level;
@@ -48,10 +46,13 @@ public class LevelManager {
                 levelData = new LevelCave();
                 break;
             case CITY:
+                levelData = new LevelCity();
                 break;
             case FOREST:
+                levelData = new LevelForest();
                 break;
             case MOUNTAIN:
+                levelData = new LevelMountain();
                 break;
         }
         gameObjects = new ArrayList<>();
@@ -59,6 +60,7 @@ public class LevelManager {
         loadMapData(context, pixelsPerMetre, px, py);
         setWaypoints();
         playing = true;
+        loadBackgrounds(context, pixelsPerMetre, screenWidth);
     }
 
     public int getBitmapIndex(char blockType) {
@@ -87,6 +89,51 @@ public class LevelManager {
                 break;
             case 'g':
                 index = 7;
+                break;
+            case 'f':
+                index = 8;
+                break;
+            case '2':
+                index = 9;
+                break;
+            case '3':
+                index = 10;
+                break;
+            case '4':
+                index = 11;
+                break;
+            case '5':
+                index = 12;
+                break;
+            case '6':
+                index = 13;
+                break;
+            case '7':
+                index = 14;
+                break;
+            case 'w':
+                index = 15;
+                break;
+            case 'x':
+                index = 16;
+                break;
+            case 'l':
+                index = 17;
+                break;
+            case 'r':
+                index = 18;
+                break;
+            case 's':
+                index = 19;
+                break;
+            case 'm':
+                index = 20;
+                break;
+            case 'z':
+                index = 21;
+                break;
+            case 't':
+                index = 22;
                 break;
         }
         return index;
@@ -130,6 +177,10 @@ public class LevelManager {
 
     public List<Rect> getCurrentButtons() {
         return currentButtons;
+    }
+
+    public List<Background> getBackgrounds() {
+        return backgrounds;
     }
 
     public Player getPlayer() {
@@ -185,6 +236,7 @@ public class LevelManager {
 
     private void loadMapData(Context context, int pixelsPerMeter, float px, float py) {
         int currentIndex = -1;
+        int teleportIndex = -1;
         mapHeight = levelData.getTiles().size();
         mapWidth = levelData.getTiles().get(0).length();
         for (int i = 0; i < levelData.getTiles().size(); i++) {
@@ -216,6 +268,52 @@ public class LevelManager {
                         case 'g':
                             gameObjects.add(new Guard(context, j, i, c, pixelsPerMeter));
                             break;
+                        case 'f':
+                            gameObjects.add(new Fire(context, j, i, c, pixelsPerMeter));
+                            break;
+                        case '2':
+                            gameObjects.add(new Snow(j, i, c));
+                            break;
+                        case '3':
+                            gameObjects.add(new Brick(j, i, c));
+                            break;
+                        case '4':
+                            gameObjects.add(new Coal(j, i, c));
+                            break;
+                        case '5':
+                            gameObjects.add(new Concrete(j, i, c));
+                            break;
+                        case '6':
+                            gameObjects.add(new Scorched(j, i, c));
+                            break;
+                        case '7':
+                            gameObjects.add(new Stone(j, i, c));
+                            break;
+                        case 'w':
+                            gameObjects.add(new Tree(j, i, c));
+                            break;
+                        case 'x':
+                            gameObjects.add(new Tree2(j, i, c));
+                            break;
+                        case 'l':
+                            gameObjects.add(new Lampost(j, i, c));
+                            break;
+                        case 'r':
+                            gameObjects.add(new Stalactite(j, i, c));
+                            break;
+                        case 's':
+                            gameObjects.add(new Stalagmite(j, i, c));
+                            break;
+                        case 'm':
+                            gameObjects.add(new Cart(j, i, c));
+                            break;
+                        case 'z':
+                            gameObjects.add(new Boulders(j, i, c));
+                            break;
+                        case 't':
+                            teleportIndex++;
+                            gameObjects.add(new Teleport(j, i, c, levelData.getLocations().get(teleportIndex)));
+                            break;
                     }
                     if (bitmapsArray[getBitmapIndex(c)] == null) {
                         GameObject go = gameObjects.get(currentIndex);
@@ -224,6 +322,14 @@ public class LevelManager {
                     }
                 }
             }
+        }
+    }
+
+    private void loadBackgrounds(Context context, int pixelsPerMetre, int screenWidth) {
+        backgrounds = new ArrayList<>();
+
+        for (BackgroundData bgData : levelData.getBackgroundDataList()) {
+            backgrounds.add(new Background(context, pixelsPerMetre, screenWidth, bgData));
         }
     }
 }

@@ -5,7 +5,7 @@ import java.util.Random;
 import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 
 public class Lampost extends GameObject {
-    Lampost(float worldStartX, float worldStartY, char type) {
+    public Lampost(float worldStartX, float worldStartY, char type) {
         final float HEIGHT = 3;
         final float WIDTH = 1;
         setHeight(HEIGHT);
@@ -20,6 +20,7 @@ public class Lampost extends GameObject {
             setWorldLocation(worldStartX, worldStartY, 1);
         }
     }
+
     public void update(long fps, float gravity) {
     }
 }

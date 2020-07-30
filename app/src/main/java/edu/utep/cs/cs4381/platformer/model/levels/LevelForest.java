@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import edu.utep.cs.cs4381.platformer.model.BackgroundData;
 import edu.utep.cs.cs4381.platformer.model.Location;
 import edu.utep.cs.cs4381.platformer.model.levels.LevelData;
+import edu.utep.cs.cs4381.platformer.model.LevelManager.Level;
 
 public class LevelForest extends LevelData {
 
@@ -34,7 +35,7 @@ public class LevelForest extends LevelData {
 
         // declare the values for the teleports in order of appearance
         locations = new ArrayList<>();
-        this.locations.add(new Location("LevelMountain", 118f, 17f));
+        this.locations.add(new Location(Level.MOUNTAIN, 118f, 17f));
 
         backgroundDataList = new ArrayList<>();
         // note that speeds less than 2 cause problems

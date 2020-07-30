@@ -59,10 +59,10 @@ public class Viewport {
     }
 
     public boolean clipObject(float x, float y, float width, float height) {
-        boolean notClipped = (x - width < currentViewportWorldCenter.x + metresToShowX / 2)
-                && (x + width > currentViewportWorldCenter.x - metresToShowX / 2)
-                && (y - height < currentViewportWorldCenter.y + metresToShowY / 2)
-                && (y + height > currentViewportWorldCenter.y - metresToShowY / 2);
+        boolean notClipped = (x - width < currentViewportWorldCenter.x + metresToShowX / 2f)
+                && (x + width > currentViewportWorldCenter.x - metresToShowX / 2f)
+                && (y - height < currentViewportWorldCenter.y + metresToShowY / 2f)
+                && (y + height > currentViewportWorldCenter.y - metresToShowY / 2f);
         if (notClipped) {
             numClipped++;
         }
@@ -88,23 +88,23 @@ public class Viewport {
 
     public void moveViewportRight(int maxWidth){
         if(currentViewportWorldCenter.x < maxWidth -
-                (metresToShowX/2)+3) {
+                (metresToShowX/2f)+3) {
             currentViewportWorldCenter.x += 1;
         }
     }
     public void moveViewportLeft(){
-        if(currentViewportWorldCenter.x > (metresToShowX/2)-3){
+        if(currentViewportWorldCenter.x > (metresToShowX/2f)-3){
             currentViewportWorldCenter.x -= 1;
         }
     }
     public void moveViewportUp(){
-        if(currentViewportWorldCenter.y > (metresToShowY /2)-3) {
+        if(currentViewportWorldCenter.y > (metresToShowY /2f)-3) {
             currentViewportWorldCenter.y -= 1;
         }
     }
     public void moveViewportDown(int maxHeight){
         if(currentViewportWorldCenter.y <
-                maxHeight - (metresToShowY / 2)+3) {
+                maxHeight - (metresToShowY / 2f)+3) {
             currentViewportWorldCenter.y += 1;
         }
     }

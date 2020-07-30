@@ -1,17 +1,19 @@
 package edu.utep.cs.cs4381.platformer.model;
 
+import edu.utep.cs.cs4381.platformer.model.LevelManager.Level;
 public class Location {
-    String level;
+    Level level;
+
     float x;
     float y;
 
-    public Location(String level, float x, float y){
+    public Location(Level level, float x, float y){
         this.level = level;
         this.x = x;
         this.y = y;
     }
 
-    public String getLevel() {
+    public Level getLevel() {
         return level;
     }
 

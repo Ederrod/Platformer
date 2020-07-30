@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import edu.utep.cs.cs4381.platformer.model.BackgroundData;
 import edu.utep.cs.cs4381.platformer.model.Location;
 import edu.utep.cs.cs4381.platformer.model.levels.LevelData;
+import edu.utep.cs.cs4381.platformer.model.LevelManager.Level;
 
 public class LevelMountain extends LevelData {
 
@@ -33,7 +34,7 @@ public class LevelMountain extends LevelData {
 
         // declare the values for the teleports in order of appearance
         locations = new ArrayList<>();
-        this.locations.add(new Location("LevelCave", 1f, 16f));
+        this.locations.add(new Location(Level.CAVE, 1f, 16f));
 
         backgroundDataList = new ArrayList<>();
         this.backgroundDataList.add(new BackgroundData("mountain", true, -2, -5, 6, 4, 11 ));

@@ -22,9 +22,11 @@ public class Teleport extends GameObject {
         setWorldLocation(worldStartX, worldStartY, 0);
         setRectHitbox();
     }
+
     public Location getTarget(){
         return target;
     }
+
     public void update(long fps, float gravity){
     }
 }

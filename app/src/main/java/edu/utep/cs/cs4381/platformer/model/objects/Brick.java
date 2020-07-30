@@ -4,7 +4,7 @@ import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 
 public class Brick extends GameObject {
 
-    Brick(float worldStartX, float worldStartY, char type) {
+    public Brick(float worldStartX, float worldStartY, char type) {
         setTraversable();
         final float HEIGHT = 1;
         final float WIDTH = 1;

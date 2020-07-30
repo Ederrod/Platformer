@@ -3,6 +3,7 @@ package edu.utep.cs.cs4381.platformer.model.levels;
 import java.util.ArrayList;
 
 import edu.utep.cs.cs4381.platformer.model.BackgroundData;
+import edu.utep.cs.cs4381.platformer.model.LevelManager.Level;
 import edu.utep.cs.cs4381.platformer.model.Location;
 
 public class LevelCave extends LevelData {
@@ -39,7 +40,7 @@ public class LevelCave extends LevelData {
 
         // declare the values for the teleports in order of appearance
         locations = new ArrayList<>();
-        locations.add(new Location("LevelCity", 118f, 18f));
+        locations.add(new Location(Level.CITY, 118f, 18f));
 
         backgroundDataList = new ArrayList<>();
         // note that speeds less than 2 cause problems

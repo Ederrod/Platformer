@@ -47,4 +47,46 @@ public class Background {
         bitmapReversed = Bitmap.createBitmap(
                 bitmap, 0, 0, width, height, matrix, true);
     }
+
+    public float getY() {
+        return y;
+    }
+
+    public float getEndY() {
+        return endY;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public int getXClip() {
+        return xClip;
+    }
+    public void setXClip(int xClip) {
+        this.xClip = xClip;
+    }
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public Bitmap getBitmapReversed() {
+        return bitmapReversed;
+    }
+
+    public boolean isReversedFirst() {
+        return reversedFirst;
+    }
+    public void setReversedFirst(boolean reversedFirst) {
+        this.reversedFirst = reversedFirst;
+    }
 }

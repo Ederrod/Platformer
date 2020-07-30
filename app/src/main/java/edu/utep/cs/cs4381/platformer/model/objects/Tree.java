@@ -5,7 +5,8 @@ import java.util.Random;
 import edu.utep.cs.cs4381.platformer.model.objects.GameObject;
 
 public class Tree extends GameObject {
-    Tree(float worldStartX, float worldStartY, char type) {
+
+    public Tree(float worldStartX, float worldStartY, char type) {
         final float HEIGHT = 4;
         final float WIDTH = 2;
         setWidth(WIDTH);
@@ -20,6 +21,7 @@ public class Tree extends GameObject {
             setWorldLocation(worldStartX, worldStartY, 1);
         }
     }
+
     public void update(long fps, float gravity) {
     }
 }
